@@ -1,0 +1,58 @@
+body {
+  background-image: url('okay.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#status {
+  width: 60%;
+  background-color: purple;
+  position: absolute;
+  left: 21%;
+  top: 37%;
+}
+
+#progression {
+  width: 0%;
+  height: 40px;
+  background-color: pink;
+  text-align: center;
+  line-height: 20px;
+  color: lavender;
+  border-radius: 10%;
+}
+
+h1 {
+  color: pink;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 70px
+}
+
+#button {
+position: absolute;
+    left: 57%;
+    top: 17%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lavender;
+    font-size: 19px;
+}
+
+#message {
+  font-size: 35px;
+  color: pink;
+  position: absolute;
+  left: 41%;
+  top: 56%;
+  background-color: rgba(88, 127, 148, 0.5);
+}
+
+input {
+  position: absolute;
+  left: 42%;
+  right: 26%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}
