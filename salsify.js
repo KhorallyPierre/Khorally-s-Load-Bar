@@ -1,15 +1,29 @@
 // load 100%
-function load() {
-  let bar = document.getElementById('progression');
-  let width = document.querySelector('#input').value;
-  if (!width) {
-    width = 0
-  }
-  let identity = setInterval(move, 10);
+let width = 0
+    const bar = document.getElementById('progression');
 
+function getWidth() {
+  let w = Number(document.querySelector('#input').value);
+  // number turns empty string to 0
+  if (isNaN(w)) {
+    alert('please enter a valid number')
+  } else if (w > 100 || w < 0) {
+    alert('please enter a number between 0 and 100')
+  } else {
+    width = w
+    bar.style.width = width + '%';
+    document.getElementById('message').innerText = `Loaded to ${width} %`
+  }
+}
+
+
+function load() {
+  //setInterval makes it so that the function gets called every 10ms
+  let identity = setInterval(move, 10);
   function move() {
     if (width >= 100) {
       clearInterval(identity);
+      // assumption 1: when 'run' is clicked when it's 100% the bar remains the same
       document.getElementById('message').innerText = "Loaded to 100%!"
     } else {
       width++;
@@ -19,18 +33,12 @@ function load() {
   }
 }
 
-
+// assumption 2: if 'run' is clicked with a number in the input, the bar will not load to that number
 document.querySelector('#input').addEventListener('keypress', function(e) {
-  console.log(e.key)
-  if (e.key === 'Enter') {
-    let width = document.querySelector('#input').value
-    if (!width) {
-      width = 0
-    }
-    console.log(width)
-    const bar = document.getElementById('progression');
-    bar.style.width = width + '%';
-    document.getElementById('message').innerText = `Loaded to ${width} %`
+  console.log("this is the key" + e.keyCode)
+  if (e.keyCode === 13) {
+    getWidth()
+
   }
 })
 document.querySelector('#button').addEventListener('click', load)
